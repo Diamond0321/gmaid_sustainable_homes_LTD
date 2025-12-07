@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - PropertiHub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Login Overlay (shown before entering password) -->
+    <div id="loginOverlay" class="login-overlay">
+        <div class="login-box">
+            <h2>Admin Access</h2>
+            <input type="password" id="adminPassword" placeholder="Enter admin password" autocomplete="off">
+            <button onclick="validateAdminPassword()">Login</button>
+        </div>
+    </div>
+
+    <!-- Admin Panel (hidden until password is correct) -->
+    <div id="adminPanel" class="admin-panel" style="display: none;">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">PropertiHub Admin</a>
+                <ul class="nav-links">
+                    <li><a href="admin.html" class="active">Dashboard</a></li>
+                    <li><a href="index.html">Exit Admin</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Admin Content -->
+        <section class="admin-content">
+            <h1>Add New Property</h1>
+            
+            <form id="propertyForm" class="admin-form">
+                <div class="form-group">
+                    <label for="propertyName">Property Name</label>
+                    <input type="text" id="propertyName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="propertyLocation">Location</label>
+                    <input type="text" id="propertyLocation" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="propertyPrice">Price ($)</label>
+                    <input type="number" id="propertyPrice" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="propertyDescription">Description</label>
+                    <textarea id="propertyDescription" rows="5" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="propertyImage">Property Image</label>
+                    <input type="file" id="propertyImage" accept="image/*" required>
+                    <div id="imagePreview" class="image-preview"></div>
+                </div>
+
+                <button type="submit" class="submit-btn">Add Property</button>
+            </form>
+
+            <!-- Uploaded Properties List -->
+            <div class="uploaded-properties">
+                <h2>Uploaded Properties</h2>
+                <div id="uploadedList" class="properties-list"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
